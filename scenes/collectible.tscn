@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dra6t7c2qguns"]
+
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_56l3q"]
+[ext_resource type="AudioStream" uid="uid://usyjm36xitrs" path="res://assets/sound/collect-5930.mp3" id="2_mliir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhguy"]
+size = Vector2(41, 41)
+
+[node name="Collectible" type="Area2D"]
+scale = Vector2(1.4, 1.4)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_56l3q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 21.0
+offset_bottom = 21.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vhguy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mliir")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

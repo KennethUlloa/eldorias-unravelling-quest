@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqutv3l11aww5"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_0c1bd"]
+[ext_resource type="Texture2D" uid="uid://gus5jkoihy3d" path="res://assets/background/decor/Diamond.png" id="1_timfe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8ak3"]
+radius = 59.0085
+
+[node name="Jewel" type="Area2D" groups=["collectible"]]
+position = Vector2(0, 10)
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_0c1bd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_timfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e8ak3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

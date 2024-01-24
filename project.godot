@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Eldorias Unravelling Quest"
-run/main_scene="res://scenes/level_1.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
@@ -39,3 +43,5 @@ jump={
 
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Collectibles"
+2d_physics/layer_4="Deathzone"

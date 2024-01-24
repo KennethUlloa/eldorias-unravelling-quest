@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmxps2gmtbl4f"]
+
+[ext_resource type="Texture2D" uid="uid://3ajrvhvqpk0c" path="res://assets/background/tiles/Decor_Statue.png" id="1_1tiv0"]
+[ext_resource type="Texture2D" uid="uid://bgyh1pm7a0jwx" path="res://assets/background/decor/Light.png" id="2_d8tke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yj57d"]
+radius = 67.082
+
+[node name="Statue" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+texture = ExtResource("1_1tiv0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-22, -60)
+texture = ExtResource("2_d8tke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22, -70)
+shape = SubResource("CircleShape2D_yj57d")

@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbkxis152wuwe"]
+
+[ext_resource type="Script" path="res://scripts/weak_ground.gd" id="1_oi8ld"]
+[ext_resource type="Texture2D" uid="uid://dtjl8teb3bus4" path="res://assets/background/tiles/Rock_01.png" id="2_h5x0b"]
+[ext_resource type="Texture2D" uid="uid://bteu7lrccdj4f" path="res://assets/background/tiles/Rock_02.png" id="3_f4c8h"]
+[ext_resource type="Texture2D" uid="uid://cgukimbbr0y2w" path="res://assets/background/tiles/Rock_03.png" id="4_4fkuq"]
+[ext_resource type="Texture2D" uid="uid://ee631asyh7yx" path="res://assets/background/tiles/Rock_08.png" id="5_ehdng"]
+[ext_resource type="Texture2D" uid="uid://bhtoy2mvq7oqa" path="res://assets/background/tiles/Rock_07.png" id="6_gmc6a"]
+[ext_resource type="Texture2D" uid="uid://bs2lvy6ln2fnw" path="res://assets/background/tiles/Rock_04.png" id="7_lp0qf"]
+[ext_resource type="Texture2D" uid="uid://g5br1p5cp75r" path="res://assets/background/tiles/Rock_05.png" id="8_5xcpm"]
+[ext_resource type="Texture2D" uid="uid://bhig0lx4fgrvk" path="res://assets/background/tiles/Rock_06.png" id="9_71iul"]
+[ext_resource type="AudioStream" uid="uid://dna12gua3doqf" path="res://assets/sound/rocks-falling-44890 (1).mp3" id="10_h6o2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnr8"]
+size = Vector2(119, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofx7k"]
+size = Vector2(118, 20)
+
+[node name="WeakGround" type="StaticBody2D"]
+script = ExtResource("1_oi8ld")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Rock01" type="Sprite2D" parent="Sprites"]
+position = Vector2(-36, 31)
+scale = Vector2(0.46875, 0.453125)
+texture = ExtResource("2_h5x0b")
+
+[node name="Rock02" type="Sprite2D" parent="Sprites"]
+position = Vector2(42, 23)
+scale = Vector2(0.410156, 0.410156)
+texture = ExtResource("3_f4c8h")
+
+[node name="Rock03" type="Sprite2D" parent="Sprites"]
+position = Vector2(-8, 33)
+scale = Vector2(0.359375, 0.359375)
+texture = ExtResource("4_4fkuq")
+
+[node name="Rock08" type="Sprite2D" parent="Sprites"]
+position = Vector2(24, 46)
+rotation = 2.87503
+scale = Vector2(0.453193, 0.453193)
+texture = ExtResource("5_ehdng")
+
+[node name="Rock07" type="Sprite2D" parent="Sprites"]
+position = Vector2(-2, 45)
+scale = Vector2(0.539063, 0.539063)
+texture = ExtResource("6_gmc6a")
+
+[node name="Rock04" type="Sprite2D" parent="Sprites"]
+position = Vector2(5, 18)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("7_lp0qf")
+
+[node name="Rock05" type="Sprite2D" parent="Sprites"]
+position = Vector2(17, 35)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("8_5xcpm")
+
+[node name="Rock06" type="Sprite2D" parent="Sprites"]
+position = Vector2(-26, 18)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("9_71iul")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 15)
+shape = SubResource("RectangleShape2D_ypnr8")
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2(1, -3)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(-1, -11)
+shape = SubResource("RectangleShape2D_ofx7k")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="DestroySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_h6o2n")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

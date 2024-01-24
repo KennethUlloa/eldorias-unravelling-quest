@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm48kah6kcwik"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_k28mx"]
+[ext_resource type="Texture2D" uid="uid://dl7k872qab0qa" path="res://assets/background/textures/old-paper-with-opulent-ornament-borders-background-illustration-cartoon-style_976369-852.jpg" id="1_qm1wm"]
+[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="2_k6wb8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uugct"]
+texture = ExtResource("1_qm1wm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqxo0"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k28mx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -325.5
+offset_right = 579.0
+offset_bottom = 325.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uugct")
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -66.0
+offset_right = 211.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k6wb8")
+text = "Message
+"
+label_settings = SubResource("LabelSettings_gqxo0")
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 66.0
+offset_right = -16.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k6wb8")
+text = "Reintentar"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.5
+offset_top = 66.0
+offset_right = 137.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k6wb8")
+text = "Regresar"
+
+[connection signal="pressed" from="Retry" to="." method="on_retry"]
+[connection signal="pressed" from="Return" to="." method="on_return"]

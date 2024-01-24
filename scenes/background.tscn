@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://2ahdyxqqs80y"]
+
+[ext_resource type="Texture2D" uid="uid://bjdlircgjt00l" path="res://assets/background/layer_02_2048 x 1546.png" id="1_fyohb"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_tpvmp"]
+[ext_resource type="Texture2D" uid="uid://bfwingg1h2ujq" path="res://assets/background/Background_02.png" id="2_o8flk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyws1"]
+
+[sub_resource type="Gradient" id="Gradient_23pos"]
+colors = PackedColorArray(0.513726, 0.686275, 1, 1, 0.513726, 0.686275, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3h3an"]
+gradient = SubResource("Gradient_23pos")
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_tpvmp")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1334, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+material = SubResource("CanvasItemMaterial_qyws1")
+offset_left = -127.0
+offset_top = -415.0
+offset_right = 1214.0
+offset_bottom = 1213.0
+texture = SubResource("GradientTexture1D_3h3an")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2048, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer3"]
+self_modulate = Color(1, 1, 1, 0.517647)
+offset_left = -127.0
+offset_top = -449.0
+offset_right = 1922.0
+offset_bottom = 1097.0
+texture = ExtResource("1_fyohb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(0, 29)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1334, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+offset_left = -122.0
+offset_top = 79.0
+offset_right = 1212.0
+offset_bottom = 829.0
+texture = ExtResource("2_o8flk")

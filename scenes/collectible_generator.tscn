@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjeslkp4l0a76"]
+
+[ext_resource type="Script" path="res://scripts/CollectibleGenerator.gd" id="1_ayagc"]
+
+[node name="CollectibleGenerator" type="Node"]
+script = ExtResource("1_ayagc")
