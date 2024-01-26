@@ -1,19 +1,43 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwf3h3o2wcrkt"]
+[gd_scene load_steps=23 format=3 uid="uid://bwf3h3o2wcrkt"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ghdjj"]
 [ext_resource type="PackedScene" uid="uid://c5ne5rqn3tnus" path="res://scenes/player.tscn" id="2_owedk"]
 [ext_resource type="PackedScene" uid="uid://cv3g6dabe6tv" path="res://scenes/tile_map.tscn" id="3_2wbee"]
 [ext_resource type="PackedScene" uid="uid://cm48kah6kcwik" path="res://scenes/menu.tscn" id="6_xp7mi"]
+[ext_resource type="PackedScene" uid="uid://c58lq3l5fj04b" path="res://scenes/translation_puzzle.tscn" id="7_0t65n"]
 [ext_resource type="PackedScene" uid="uid://boido4fuw5guj" path="res://scenes/ui.tscn" id="7_2t8o1"]
+[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="7_aeotv"]
+[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="8_euk0j"]
 [ext_resource type="PackedScene" uid="uid://cnoduc7ugee1a" path="res://scenes/deathzone.tscn" id="8_o1psb"]
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="9_ief7k"]
 [ext_resource type="Texture2D" uid="uid://bb2dx7erc37qy" path="res://assets/background/tiles/Sign_01.png" id="9_v4cas"]
-[ext_resource type="PackedScene" uid="uid://bjeslkp4l0a76" path="res://scenes/collectible_generator.tscn" id="10_as877"]
+[ext_resource type="FontFile" uid="uid://c0jy7kximrfeq" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="10_dagsg"]
 [ext_resource type="PackedScene" uid="uid://dmxps2gmtbl4f" path="res://scenes/statue.tscn" id="11_byl0k"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="11_ktkah"]
 [ext_resource type="AudioStream" uid="uid://chncaqsbge0m6" path="res://assets/sound/violin-lose-4-185125.mp3" id="11_qta7l"]
 [ext_resource type="AudioStream" uid="uid://6qd7ese05dah" path="res://assets/sound/game-setting-fantasy-142092.mp3" id="12_t8afc"]
 [ext_resource type="PackedScene" uid="uid://2ahdyxqqs80y" path="res://scenes/background.tscn" id="13_c1inx"]
 [ext_resource type="AudioStream" uid="uid://5c41rqdmkmcc" path="res://assets/sound/violin-win-5-185128.mp3" id="14_2canv"]
 [ext_resource type="PackedScene" uid="uid://dbkxis152wuwe" path="res://scenes/weak_ground.tscn" id="14_54tyx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_te3o2"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+texture = ExtResource("9_ief7k")
+region_rect = Rect2(75.0029, 3973.99, 1154.44, 224.166)
+
+[sub_resource type="Theme" id="Theme_r3ilj"]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("7_aeotv")
+Button/styles/disabled = ExtResource("8_euk0j")
+Button/styles/hover = SubResource("StyleBoxTexture_te3o2")
+Button/styles/normal = ExtResource("8_euk0j")
+Fonts/fonts/normal = ExtResource("10_dagsg")
+Label/fonts/font = ExtResource("7_aeotv")
+Label/styles/opaque = ExtResource("11_ktkah")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkbfw"]
 size = Vector2(60, 1490)
@@ -63,6 +87,10 @@ metadata/_edit_lock_ = true
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("6_xp7mi")]
 visible = false
+theme = SubResource("Theme_r3ilj")
+
+[node name="TranslationPuzzle" parent="CanvasLayer" instance=ExtResource("7_0t65n")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -79,8 +107,6 @@ position = Vector2(227, 551)
 
 [node name="Statue" parent="." instance=ExtResource("11_byl0k")]
 position = Vector2(277, -93)
-
-[node name="CollectibleGenerator" parent="." instance=ExtResource("10_as877")]
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_qta7l")

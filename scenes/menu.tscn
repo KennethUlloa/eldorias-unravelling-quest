@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm48kah6kcwik"]
+[gd_scene load_steps=7 format=3 uid="uid://cm48kah6kcwik"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_k28mx"]
 [ext_resource type="Texture2D" uid="uid://dl7k872qab0qa" path="res://assets/background/textures/old-paper-with-opulent-ornament-borders-background-illustration-cartoon-style_976369-852.jpg" id="1_qm1wm"]
-[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="2_k6wb8"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="1_s6ivm"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="4_rafgp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uugct"]
 texture = ExtResource("1_qm1wm")
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_s6ivm")
 script = ExtResource("1_k28mx")
 
 [node name="Panel" type="Panel" parent="."]
@@ -42,49 +44,41 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -66.0
-offset_right = 211.0
-offset_bottom = -8.0
+offset_left = -524.0
+offset_top = -154.0
+offset_right = 524.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_k6wb8")
+theme = ExtResource("1_s6ivm")
+theme_override_styles/normal = ExtResource("4_rafgp")
 text = "Message
 "
 label_settings = SubResource("LabelSettings_gqxo0")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Retry" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = 66.0
-offset_right = -16.0
+offset_left = -165.5
+offset_top = 54.0
+offset_right = 165.5
 offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_k6wb8")
+
+[node name="Retry" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "Reintentar"
 
-[node name="Return" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 12.5
-offset_top = 66.0
-offset_right = 137.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_k6wb8")
+[node name="Return" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "Regresar"
 
-[connection signal="pressed" from="Retry" to="." method="on_retry"]
-[connection signal="pressed" from="Return" to="." method="on_return"]
+[connection signal="pressed" from="HBoxContainer/Retry" to="." method="on_retry"]
+[connection signal="pressed" from="HBoxContainer/Return" to="." method="on_return"]

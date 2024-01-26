@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b70gug4noqp4w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjjko"]
+load_path = "res://.godot/imported/Game menus-01.png-85aba52af711d84ac49dcafce349c3a7.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_fjjko")
+region_rect = Rect2(118.339, 4986.69, 1149.38, 440.51)

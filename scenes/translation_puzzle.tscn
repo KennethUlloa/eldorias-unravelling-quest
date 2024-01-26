@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://c58lq3l5fj04b"]
+
+[ext_resource type="Script" path="res://scripts/nodes/translation_puzzle.gd" id="1_6yx56"]
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="1_c5vyw"]
+[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="1_cb6qc"]
+[ext_resource type="Texture2D" uid="uid://dl7k872qab0qa" path="res://assets/background/textures/old-paper-with-opulent-ornament-borders-background-illustration-cartoon-style_976369-852.jpg" id="2_f3goy"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_w018t"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="6_pkc77"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bk7cn"]
+texture = ExtResource("1_c5vyw")
+region_rect = Rect2(3346.47, 2322.7, 1549.38, 1728.94)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfcv6"]
+font_size = 32
+
+[node name="TranslationPuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6yx56")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 40.0
+scale = Vector2(1, 16.24)
+texture = ExtResource("2_f3goy")
+expand_mode = 1
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -261.5
+offset_right = 528.0
+offset_bottom = 261.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bk7cn")
+
+[node name="Instruction" type="Label" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.0
+offset_top = 123.0
+offset_right = 413.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme = ExtResource("1_cb6qc")
+text = "Selecciona la traducción correcta de la siguiente palabra o frase:"
+label_settings = SubResource("LabelSettings_bfcv6")
+
+[node name="TargetWord" type="Label" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -73.5
+offset_right = 468.0
+offset_bottom = -18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cb6qc")
+theme_override_font_sizes/font_size = 48
+text = "Frase/Palabra
+"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MainPanel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 275.0
+offset_right = 820.0
+offset_bottom = 395.0
+theme = ExtResource("3_w018t")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Message" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.5
+offset_top = -125.5
+offset_right = 328.5
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_w018t")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("6_pkc77")
+text = "Message"
+horizontal_alignment = 1
+vertical_alignment = 1

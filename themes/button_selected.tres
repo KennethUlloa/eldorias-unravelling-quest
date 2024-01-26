@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://uranudttvgxi"]
+
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="1_5m7vq"]
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_5m7vq")
+region_rect = Rect2(75.0029, 3973.99, 1154.44, 224.166)

@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cyfc2kxar4er2"]
+
+[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="1_qc6wr"]
+[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="2_wpax7"]
+[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="2_xdqj3"]
+[ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="3_th6u6"]
+[ext_resource type="FontFile" uid="uid://c0jy7kximrfeq" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="4_76wvc"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="5_c6a0t"]
+
+[resource]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_qc6wr")
+Button/styles/disabled = ExtResource("2_xdqj3")
+Button/styles/hover = ExtResource("3_th6u6")
+Button/styles/normal = ExtResource("2_wpax7")
+Button/styles/pressed = ExtResource("2_xdqj3")
+Fonts/fonts/normal = ExtResource("4_76wvc")
+Label/fonts/font = ExtResource("1_qc6wr")
+Label/styles/opaque = ExtResource("5_c6a0t")

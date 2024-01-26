@@ -1,23 +1,21 @@
 extends Area2D
 
-var points = 0
 var area = 86 * 86
 var type: String
 @onready var audio = $AudioStreamPlayer2D
-var active = true
+@onready var collision = $CollisionShape2D
 
 func _ready():
 	pass # Replace with function body.
 	
-func load_values(_points, texture: Texture2D, _type: String):
+func load_values(texture: Texture2D, _type: String):
 	type = _type
-	points = _points
 	$TextureRect.texture = texture
 	
 
 func _on_body_entered(body):
-	if body is Player and active:
-		active = false
+	if body is Player:
+		collision.disabled = true
 		body.collect_item(type)
 		visible = false
 		audio.play()
