@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bwy1g6gn772bn"]
+
+[node name="CollectiblePosition" type="Marker2D" groups=["collectible_position"]]

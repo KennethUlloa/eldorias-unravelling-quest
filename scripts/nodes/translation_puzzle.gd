@@ -2,7 +2,11 @@ extends Control
 
 @onready var target = $MainPanel/TargetWord
 @onready var grid = $MainPanel/GridContainer
-@onready var message = $Message
+@onready var message = $MessageContainer/Message
+@onready var message_container = $MessageContainer
+@onready var attempts_label = $HBoxContainer/Attempts
+@export var attempts = 3
+
 var puzzle: CollectibleModel.Puzzle
 
 signal success
@@ -13,7 +17,8 @@ func _ready():
 		CollectibleRepository.get_by_names(["apple","star","key"]),
 		"apple"
 	))
-	pass
+	attempts_label.text = str(attempts)
+	message.closed.connect(message_container.hide)
 
 func load_puzzle(_puzzle: CollectibleModel.Puzzle):
 	puzzle = _puzzle
@@ -35,12 +40,14 @@ func clear_buttons():
 		
 
 func check_answer(ans_):
-	print(ans_)
 	if puzzle.check_answer(ans_):
 		success.emit()
 	else:
-		message.text = puzzle.get_fail_message(ans_)
-		message.visible = true
-		await get_tree().create_timer(5).timeout
-		message.visible = false
-		failed.emit()
+		attempts -= 1
+		attempts_label.text = str(attempts)
+		message.message = puzzle.get_fail_message(ans_)
+		message_container.show()
+		await message.show_(5)
+		
+		if attempts <= 0:
+			failed.emit()

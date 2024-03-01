@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://boido4fuw5guj"]
+[gd_scene load_steps=7 format=3 uid="uid://boido4fuw5guj"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_glpjk"]
 [ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="1_sd74b"]
 [ext_resource type="Texture2D" uid="uid://c7g2pyurjtovc" path="res://assets/background/decor/Life.png" id="3_8lnp1"]
+[ext_resource type="Texture2D" uid="uid://d4ftwraa6015o" path="res://assets/ui/Gold icons set 1-01-01.png" id="4_vsjnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gsq5x"]
 font_size = 28
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4yy0"]
+atlas = ExtResource("4_vsjnt")
+region = Rect2(4808, 1304, 424, 448)
+filter_clip = true
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -50,3 +56,12 @@ offset_top = 8.0
 offset_right = 64.0
 offset_bottom = 31.0
 text = "x"
+
+[node name="PauseBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1095.0
+offset_top = 22.0
+offset_right = 1125.0
+offset_bottom = 54.0
+icon = SubResource("AtlasTexture_n4yy0")
+expand_icon = true

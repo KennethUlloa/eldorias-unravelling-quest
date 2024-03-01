@@ -167,9 +167,12 @@ limit_bottom = 730
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("31_d3i01")
+bus = &"SFX"
 
 [node name="Running" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("39_y5u7c")
+bus = &"SFX"
 
 [node name="Jumping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_4buau")
+bus = &"SFX"

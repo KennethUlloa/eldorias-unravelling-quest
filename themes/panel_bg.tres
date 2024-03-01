@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://jattmvauw7ut"]
+
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="1_x5pj3"]
+
+[resource]
+texture = ExtResource("1_x5pj3")
+region_rect = Rect2(3346.47, 2322.7, 1549.38, 1728.94)

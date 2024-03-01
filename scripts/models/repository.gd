@@ -35,7 +35,7 @@ static var values = {
 	)
 }
 
-static func get_by_names(names):
+static func get_by_names(names) ->  Array[CollectibleModel.Collectible]:
 	var collectibles: Array[CollectibleModel.Collectible] = []
 	for _name in names:
 		if _name in values:

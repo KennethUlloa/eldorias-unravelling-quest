@@ -15,10 +15,12 @@ func load_values(texture: Texture2D, _type: String):
 
 func _on_body_entered(body):
 	if body is Player:
-		collision.disabled = true
-		body.collect_item(type)
+		collision.set_deferred("disable", true)
 		visible = false
-		audio.play()
+		body.collect_item(type)
+		AudioPlayer.play_sfx("pick")
+		queue_free()
+		#audio.play()
 
 
 func _on_audio_stream_player_2d_finished():

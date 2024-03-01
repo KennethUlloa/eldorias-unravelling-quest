@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ldwle5784y1" path="res://assets/background/image 2.png" id="1_e5f42"]
 [ext_resource type="Texture2D" uid="uid://ddtg0r2x3j283" path="res://assets/background/Eldorias.svg" id="2_nro0d"]
 [ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_rvbxm"]
-[ext_resource type="AudioStream" uid="uid://cug1urohmbcsi" path="res://assets/sound/get-in-here-fantasy-instrumental-164331.mp3" id="4_7dx74"]
+[ext_resource type="PackedScene" uid="uid://na38n8wkd1df" path="res://scenes/generic_level.tscn" id="3_v75he"]
 
 [sub_resource type="Animation" id="Animation_qixfs"]
 resource_name = "Intro"
@@ -75,15 +75,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_rvbxm")
 script = ExtResource("1_ccf54")
+next_scene = ExtResource("3_v75he")
 
 [node name="Image2" type="Sprite2D" parent="."]
 position = Vector2(573, 354)
 scale = Vector2(0.857422, 0.857422)
 texture = ExtResource("1_e5f42")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_7dx74")
-autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

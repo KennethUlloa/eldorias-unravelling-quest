@@ -1,0 +1,75 @@
+[gd_scene load_steps=18 format=3 uid="uid://na38n8wkd1df"]
+
+[ext_resource type="Script" path="res://scripts/GenericLevel.gd" id="1_k46s2"]
+[ext_resource type="PackedScene" uid="uid://c5ne5rqn3tnus" path="res://scenes/player.tscn" id="2_sywvf"]
+[ext_resource type="PackedScene" uid="uid://c58lq3l5fj04b" path="res://scenes/translation_puzzle.tscn" id="3_e6uwk"]
+[ext_resource type="PackedScene" uid="uid://boido4fuw5guj" path="res://scenes/ui.tscn" id="3_p17dh"]
+[ext_resource type="TileSet" uid="uid://dmytyke52q7vr" path="res://themes/tileset.tres" id="5_hdxjs"]
+[ext_resource type="PackedScene" uid="uid://cm48kah6kcwik" path="res://scenes/menu.tscn" id="5_wcysk"]
+[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="6_0m2sh"]
+[ext_resource type="PackedScene" uid="uid://bwy1g6gn772bn" path="res://scenes/collectible_position.tscn" id="6_5knyx"]
+[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="7_l6mxw"]
+[ext_resource type="PackedScene" uid="uid://cnoduc7ugee1a" path="res://scenes/deathzone.tscn" id="7_v5vlj"]
+[ext_resource type="PackedScene" uid="uid://dmxps2gmtbl4f" path="res://scenes/statue.tscn" id="8_67gwk"]
+[ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="8_a3ug1"]
+[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="9_ix4ra"]
+[ext_resource type="FontFile" uid="uid://c0jy7kximrfeq" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="10_2fdjk"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="11_g7gmn"]
+[ext_resource type="PackedScene" uid="uid://dtv2ewywtoguh" path="res://scenes/pause_menu.tscn" id="16_shlra"]
+
+[sub_resource type="Theme" id="Theme_walrh"]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("6_0m2sh")
+Button/styles/disabled = ExtResource("7_l6mxw")
+Button/styles/hover = ExtResource("8_a3ug1")
+Button/styles/normal = ExtResource("9_ix4ra")
+Button/styles/pressed = ExtResource("7_l6mxw")
+Fonts/fonts/normal = ExtResource("10_2fdjk")
+Label/fonts/font = ExtResource("6_0m2sh")
+Label/styles/opaque = ExtResource("11_g7gmn")
+
+[node name="GenericLevel" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_k46s2")
+collectible_list = Array[String](["apple", "star", "key"])
+
+[node name="Player" parent="." instance=ExtResource("2_sywvf")]
+position = Vector2(215, 588)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(103, 581)
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="Canvas" instance=ExtResource("3_p17dh")]
+
+[node name="Puzzle" parent="Canvas" instance=ExtResource("3_e6uwk")]
+visible = false
+
+[node name="MessagePanel" parent="Canvas" instance=ExtResource("5_wcysk")]
+visible = false
+theme = SubResource("Theme_walrh")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("5_hdxjs")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 589871, 5, 720896, 589871, 6, 655361, 655407, 5, 720897, 655407, 6, 655362, 589871, 5, 720898, 589871, 6, 655363, 655407, 5, 720899, 655407, 6, 655364, 589871, 5, 720900, 589871, 6, 655365, 655407, 5, 720901, 655407, 6, 655366, 589871, 5, 720902, 589871, 6, 655367, 655407, 5, 720903, 655407, 6, 655368, 589871, 5, 720904, 589871, 6, 655369, 655407, 5, 720905, 655407, 6, 655370, 589871, 5, 720906, 589871, 6, 655371, 655407, 5, 720907, 655407, 6, 655372, 589871, 5, 720908, 589871, 6, 655373, 655407, 5, 720909, 655407, 6, 655374, 589871, 5, 720910, 589871, 6, 655375, 655407, 5, 720911, 655407, 6, 655376, 589871, 5, 720912, 589871, 6, 655377, 655407, 5, 720913, 655407, 6, 655378, 589871, 5, 720914, 589871, 6, 655379, 655407, 5, 720915, 655407, 6, 655380, 589871, 5, 720916, 589871, 6, 655381, 655407, 5, 720917, 655407, 6, 655382, 589871, 5, 720918, 589871, 6, 655383, 655407, 5, 720919, 655407, 6)
+
+[node name="CollectiblePosition" parent="." instance=ExtResource("6_5knyx")]
+position = Vector2(421, 571)
+
+[node name="CollectiblePosition2" parent="." instance=ExtResource("6_5knyx")]
+position = Vector2(882, 568)
+
+[node name="Deathzone" parent="." instance=ExtResource("7_v5vlj")]
+position = Vector2(-808, 821)
+scale = Vector2(5.04419, -1.36132)
+
+[node name="Statue" parent="." instance=ExtResource("8_67gwk")]
+position = Vector2(1384, 639)
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_shlra")]
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_enter"]
+[connection signal="body_entered" from="Statue" to="." method="_on_finish_level"]
