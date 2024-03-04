@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioPlayer="*res://scenes/audio_player.tscn"
+PauseMenu="*res://scenes/pause_menu.tscn"
+CurrentSession="*res://scripts/Session.gd"
+MessageLayer="*res://scenes/message_layer.tscn"
 
 [display]
 
@@ -54,3 +57,7 @@ pause={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Collectibles"
 2d_physics/layer_4="Deathzone"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1

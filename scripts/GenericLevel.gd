@@ -2,16 +2,13 @@ extends Node2D
 
 @onready var player = $Player
 @onready var start_position = $StartPosition
-@onready var puzzle = $Canvas/Puzzle
-@onready var ui = $Canvas/UI
-@onready var message = $Canvas/MessagePanel
-@onready var canvas = $Canvas
-@onready var pause_menu = $PauseMenu
+@onready var puzzle = $CanvasLayer/TranslationPuzzle
+@onready var ui = $CanvasLayer/UI
+@onready var message = $CanvasLayer/MessagePanel
 
-@export var collectible_list: Array[String]
-@export var bg_sound: String = "level"
+@export var vocabulary_name: String
+@export var bg_sound = AudioPlayer.LEVEL_BG
 
-signal paused
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,18 +30,12 @@ func set_traps():
 
 func set_ui():
 	ui.pause_btn.pressed.connect(pause)
-	pause_menu.resume_btn.pressed.connect(resume)
-	paused.connect(pause_menu.toggle_view)
 	message.retry_selected.connect(restart_level)
 
 func pause():
-	get_tree().paused = true
-	paused.emit(true)
+	PauseMenu.pause_game()
 
-func resume():
-	get_tree().paused = false
-	paused.emit(false)
-	
+
 
 func set_player():
 	ui.set_lifes(player.lifes)
@@ -62,7 +53,8 @@ func set_collectibles():
 		
 
 func set_puzzle():
-	var collectibles = CollectibleRepository.get_by_names(collectible_list)
+	var vocabulary = CollectibleRepository.vocabulary_items.get(vocabulary_name)
+	var collectibles = vocabulary.collectibles
 	var answer = collectibles.pick_random()
 	var puzzle_ = CollectibleModel.Puzzle.new(
 		collectibles,
@@ -81,13 +73,14 @@ func _on_deathzone_enter(body):
 
 func game_over():
 	AudioPlayer.pause_bg()
-	AudioPlayer.play_sfx("lose")
+	AudioPlayer.play_sfx(AudioPlayer.LOSE_SFX)
 	message.set_message("Perdiste :c")
+	puzzle.visible = false
 	message.visible = true
 
 func win():
 	AudioPlayer.pause_bg()
-	AudioPlayer.play_sfx("win")
+	AudioPlayer.play_sfx(AudioPlayer.WIN_SFX)
 	message.set_message(puzzle.puzzle.get_success_message())
 	message.visible = true
 	puzzle.visible = false

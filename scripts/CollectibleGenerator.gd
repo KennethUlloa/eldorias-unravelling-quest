@@ -8,5 +8,6 @@ static func create_collectible(collectible: CollectibleModel.Collectible):
 	var coll_instance = collectible_scene.instantiate()
 	coll_instance.load_values(
 		collectible.get_texture(),
+		collectible.get_sound(),
 		collectible.ID)
 	return coll_instance

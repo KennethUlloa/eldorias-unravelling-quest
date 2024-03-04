@@ -8,7 +8,7 @@
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
-process_priority = 1
+layer = 100
 script = ExtResource("2_ghi5g")
 
 [node name="Panel" type="Panel" parent="."]

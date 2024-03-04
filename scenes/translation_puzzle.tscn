@@ -1,17 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c58lq3l5fj04b"]
+[gd_scene load_steps=9 format=3 uid="uid://c58lq3l5fj04b"]
 
 [ext_resource type="Script" path="res://scripts/nodes/translation_puzzle.gd" id="1_6yx56"]
 [ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="1_cb6qc"]
 [ext_resource type="Texture2D" uid="uid://dl7k872qab0qa" path="res://assets/background/textures/old-paper-with-opulent-ornament-borders-background-illustration-cartoon-style_976369-852.jpg" id="2_f3goy"]
 [ext_resource type="StyleBox" uid="uid://jattmvauw7ut" path="res://themes/panel_bg.tres" id="3_v80se"]
 [ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_w018t"]
-[ext_resource type="PackedScene" uid="uid://nk3qgrrtanhq" path="res://scenes/popup.tscn" id="6_o33io"]
-[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="6_pkc77"]
-[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="7_7e1yv"]
-[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="8_itl32"]
-[ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="9_7us7p"]
-[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="10_t4f5b"]
-[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="11_dr76e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfcv6"]
 font_size = 32
@@ -21,33 +14,6 @@ font_size = 28
 
 [sub_resource type="LabelSettings" id="LabelSettings_5unth"]
 font_size = 28
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sic8q"]
-texture = ExtResource("11_dr76e")
-region_rect = Rect2(99.6127, 4277.77, 1101.28, 178.482)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ni8"]
-texture = ExtResource("11_dr76e")
-region_rect = Rect2(99.6127, 4003.8, 1101.28, 174.945)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_se8r6"]
-color = Color(1, 1, 1, 0.152941)
-thickness = 10
-
-[sub_resource type="Theme" id="Theme_h3d6i"]
-resource_local_to_scene = true
-Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("7_7e1yv")
-Button/styles/disabled = ExtResource("8_itl32")
-Button/styles/hover = ExtResource("9_7us7p")
-Button/styles/normal = ExtResource("10_t4f5b")
-Button/styles/pressed = ExtResource("8_itl32")
-HSlider/styles/grabber_area = SubResource("StyleBoxTexture_sic8q")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_48ni8")
-HSlider/styles/slider = SubResource("StyleBoxLine_se8r6")
-Label/fonts/font = ExtResource("7_7e1yv")
-Label/styles/opaque = ExtResource("6_pkc77")
-PanelContainer/styles/panel = ExtResource("6_pkc77")
 
 [node name="TranslationPuzzle" type="Control"]
 layout_mode = 3
@@ -116,14 +82,14 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MainPanel"]
 layout_mode = 0
-offset_left = 232.0
+offset_left = 47.0
 offset_top = 275.0
-offset_right = 820.0
-offset_bottom = 395.0
+offset_right = 1018.0
+offset_bottom = 446.0
 theme = ExtResource("3_w018t")
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 2
+columns = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -147,17 +113,3 @@ layout_mode = 2
 theme = ExtResource("3_w018t")
 text = "0"
 label_settings = SubResource("LabelSettings_5unth")
-
-[node name="MessageContainer" type="PanelContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Message" parent="MessageContainer" instance=ExtResource("6_o33io")]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_h3d6i")

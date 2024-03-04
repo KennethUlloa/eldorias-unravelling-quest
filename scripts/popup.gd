@@ -1,32 +1,24 @@
 extends PanelContainer
 
-@onready var close_btn = $VBoxContainer/Button
-@onready var message_label = $VBoxContainer/Message
-@onready var timer = $Timer
+class_name CustomPopUp
+
+@onready var close_btn = $VBoxContainer/CloseButton
+@onready var message_label = $VBoxContainer/MessageLabel
+
+
 # Called when the node enters the scene tree for the first time.
 signal closed
 
 func _ready():
-	hide()
+	#hide()
 	pass
+	
+func set_message(msg):
+	message_label.text = msg
 
-var message: String:
-	get:
-		return message
-	set(value):
-		message = value
-		message_label.text = message
-		
-func show_(time):
-	show()
-	timer.wait_time = time
-	timer.start()
-	await closed
-	hide()
+func get_message():
+	return message_label.text
+	
 
 func _on_button_pressed():
-	closed.emit()
-
-
-func _on_timer_timeout():
 	closed.emit()

@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://c58lq3l5fj04b" path="res://scenes/translation_puzzle.tscn" id="3_e6uwk"]
 [ext_resource type="PackedScene" uid="uid://boido4fuw5guj" path="res://scenes/ui.tscn" id="3_p17dh"]
 [ext_resource type="TileSet" uid="uid://dmytyke52q7vr" path="res://themes/tileset.tres" id="5_hdxjs"]
-[ext_resource type="PackedScene" uid="uid://cm48kah6kcwik" path="res://scenes/menu.tscn" id="5_wcysk"]
 [ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="6_0m2sh"]
 [ext_resource type="PackedScene" uid="uid://bwy1g6gn772bn" path="res://scenes/collectible_position.tscn" id="6_5knyx"]
 [ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="7_l6mxw"]
 [ext_resource type="PackedScene" uid="uid://cnoduc7ugee1a" path="res://scenes/deathzone.tscn" id="7_v5vlj"]
 [ext_resource type="PackedScene" uid="uid://dmxps2gmtbl4f" path="res://scenes/statue.tscn" id="8_67gwk"]
 [ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="8_a3ug1"]
+[ext_resource type="PackedScene" uid="uid://cm48kah6kcwik" path="res://scenes/message_panel.tscn" id="9_0uimr"]
 [ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="9_ix4ra"]
 [ext_resource type="FontFile" uid="uid://c0jy7kximrfeq" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="10_2fdjk"]
 [ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="11_g7gmn"]
-[ext_resource type="PackedScene" uid="uid://dtv2ewywtoguh" path="res://scenes/pause_menu.tscn" id="16_shlra"]
+[ext_resource type="PackedScene" uid="uid://2ahdyxqqs80y" path="res://scenes/background.tscn" id="16_8lp1y"]
 
 [sub_resource type="Theme" id="Theme_walrh"]
 resource_local_to_scene = true
@@ -32,24 +32,13 @@ Label/styles/opaque = ExtResource("11_g7gmn")
 [node name="GenericLevel" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_k46s2")
-collectible_list = Array[String](["apple", "star", "key"])
+vocabulary_name = "fruits"
 
 [node name="Player" parent="." instance=ExtResource("2_sywvf")]
 position = Vector2(215, 588)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(103, 581)
-
-[node name="Canvas" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="Canvas" instance=ExtResource("3_p17dh")]
-
-[node name="Puzzle" parent="Canvas" instance=ExtResource("3_e6uwk")]
-visible = false
-
-[node name="MessagePanel" parent="Canvas" instance=ExtResource("5_wcysk")]
-visible = false
-theme = SubResource("Theme_walrh")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_hdxjs")
@@ -69,7 +58,21 @@ scale = Vector2(5.04419, -1.36132)
 [node name="Statue" parent="." instance=ExtResource("8_67gwk")]
 position = Vector2(1384, 639)
 
-[node name="PauseMenu" parent="." instance=ExtResource("16_shlra")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_p17dh")]
+
+[node name="TranslationPuzzle" parent="CanvasLayer" instance=ExtResource("3_e6uwk")]
+visible = false
+
+[node name="MessagePanel" parent="CanvasLayer" instance=ExtResource("9_0uimr")]
+visible = false
+theme = SubResource("Theme_walrh")
+
+[node name="Background" parent="." instance=ExtResource("16_8lp1y")]
+
+[node name="CollectiblePosition3" parent="." instance=ExtResource("6_5knyx")]
+position = Vector2(628, 328)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_enter"]
 [connection signal="body_entered" from="Statue" to="." method="_on_finish_level"]

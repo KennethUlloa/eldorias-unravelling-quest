@@ -1,11 +1,16 @@
 extends Control
 
 @onready var target = $MainPanel/TargetWord
+@onready var instruction = $MainPanel/Instruction
 @onready var grid = $MainPanel/GridContainer
-@onready var message = $MessageContainer/Message
-@onready var message_container = $MessageContainer
 @onready var attempts_label = $HBoxContainer/Attempts
 @export var attempts = 3
+@export var puzzle_style = 1
+
+const TRANSLATION = 0
+const IMAGE_SELECTION = 1
+
+var icon_btn_scene = preload("res://scenes/icon_btn.tscn")
 
 var puzzle: CollectibleModel.Puzzle
 
@@ -13,12 +18,7 @@ signal success
 signal failed
 
 func _ready():
-	load_puzzle(CollectibleModel.Puzzle.new(
-		CollectibleRepository.get_by_names(["apple","star","key"]),
-		"apple"
-	))
 	attempts_label.text = str(attempts)
-	message.closed.connect(message_container.hide)
 
 func load_puzzle(_puzzle: CollectibleModel.Puzzle):
 	puzzle = _puzzle
@@ -44,10 +44,16 @@ func check_answer(ans_):
 		success.emit()
 	else:
 		attempts -= 1
-		attempts_label.text = str(attempts)
-		message.message = puzzle.get_fail_message(ans_)
-		message_container.show()
-		await message.show_(5)
-		
 		if attempts <= 0:
 			failed.emit()
+			return
+			
+		attempts_label.text = str(attempts)
+		
+		var message = puzzle.get_fail_message(ans_)
+		MessageLayer.show_message(message)
+		
+		
+		
+		
+		

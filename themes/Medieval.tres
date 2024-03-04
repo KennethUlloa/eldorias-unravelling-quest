@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cyfc2kxar4er2"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cyfc2kxar4er2"]
 
 [ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="1_qc6wr"]
 [ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="2_wpax7"]
@@ -19,6 +19,14 @@ region_rect = Rect2(99.6127, 4003.8, 1101.28, 174.945)
 color = Color(1, 1, 1, 0.152941)
 thickness = 10
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sa1n"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_k8i0t")
+region_rect = Rect2(122.502, 4582.77, 1144.95, 346.474)
+
 [resource]
 resource_local_to_scene = true
 Button/font_sizes/font_size = 24
@@ -32,4 +40,9 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_48ni8")
 HSlider/styles/slider = SubResource("StyleBoxLine_se8r6")
 Label/fonts/font = ExtResource("1_qc6wr")
 Label/styles/opaque = ExtResource("5_c6a0t")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.423529, 0.14902, 0, 1)
+LineEdit/font_sizes/font_size = 22
+LineEdit/fonts/font = ExtResource("1_qc6wr")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_6sa1n")
 PanelContainer/styles/panel = ExtResource("5_c6a0t")

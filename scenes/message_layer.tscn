@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3 uid="uid://sy454hhwbok1"]
+
+[ext_resource type="Script" path="res://scripts/message_layer.gd" id="1_8x850"]
+[ext_resource type="PackedScene" uid="uid://nk3qgrrtanhq" path="res://scenes/popup.tscn" id="1_737rw"]
+[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="2_dutjn"]
+[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="3_46ds6"]
+[ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="4_jaldd"]
+[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="5_v132d"]
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="6_wtghp"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="7_fvnl2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sic8q"]
+texture = ExtResource("6_wtghp")
+region_rect = Rect2(99.6127, 4277.77, 1101.28, 178.482)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ni8"]
+texture = ExtResource("6_wtghp")
+region_rect = Rect2(99.6127, 4003.8, 1101.28, 174.945)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_se8r6"]
+color = Color(1, 1, 1, 0.152941)
+thickness = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sa1n"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_wtghp")
+region_rect = Rect2(122.502, 4582.77, 1144.95, 346.474)
+
+[sub_resource type="Theme" id="Theme_afr2n"]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("2_dutjn")
+Button/styles/disabled = ExtResource("3_46ds6")
+Button/styles/hover = ExtResource("4_jaldd")
+Button/styles/normal = ExtResource("5_v132d")
+Button/styles/pressed = ExtResource("3_46ds6")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_sic8q")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_48ni8")
+HSlider/styles/slider = SubResource("StyleBoxLine_se8r6")
+Label/fonts/font = ExtResource("2_dutjn")
+Label/styles/opaque = ExtResource("7_fvnl2")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.423529, 0.14902, 0, 1)
+LineEdit/font_sizes/font_size = 22
+LineEdit/fonts/font = ExtResource("2_dutjn")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_6sa1n")
+PanelContainer/styles/panel = ExtResource("7_fvnl2")
+
+[node name="MessageLayer" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_8x850")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopUp" parent="PanelContainer" instance=ExtResource("1_737rw")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_afr2n")

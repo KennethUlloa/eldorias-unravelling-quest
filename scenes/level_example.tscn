@@ -1,0 +1,115 @@
+[gd_scene load_steps=23 format=3 uid="uid://beunawbcgbkmw"]
+
+[ext_resource type="PackedScene" uid="uid://c5ne5rqn3tnus" path="res://scenes/player.tscn" id="1_cwrjd"]
+[ext_resource type="Script" path="res://scripts/GenericLevel.gd" id="1_sm0b0"]
+[ext_resource type="PackedScene" uid="uid://2ahdyxqqs80y" path="res://scenes/background.tscn" id="2_1s861"]
+[ext_resource type="PackedScene" uid="uid://cv3g6dabe6tv" path="res://scenes/tile_map.tscn" id="3_kfx1d"]
+[ext_resource type="PackedScene" uid="uid://bwy1g6gn772bn" path="res://scenes/collectible_position.tscn" id="4_kfja1"]
+[ext_resource type="PackedScene" uid="uid://boido4fuw5guj" path="res://scenes/ui.tscn" id="6_bptf1"]
+[ext_resource type="PackedScene" uid="uid://cm48kah6kcwik" path="res://scenes/message_panel.tscn" id="7_aoygi"]
+[ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="8_gh46k"]
+[ext_resource type="StyleBox" uid="uid://dxtdgyt3x5pmb" path="res://themes/button_texture_opaque.tres" id="9_odx2r"]
+[ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="10_8ob4u"]
+[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="11_xvfr5"]
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="12_wadvu"]
+[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="13_dgu3o"]
+[ext_resource type="PackedScene" uid="uid://c58lq3l5fj04b" path="res://scenes/translation_puzzle.tscn" id="14_uev0x"]
+[ext_resource type="PackedScene" uid="uid://cnoduc7ugee1a" path="res://scenes/deathzone.tscn" id="15_l7csc"]
+[ext_resource type="PackedScene" uid="uid://dmxps2gmtbl4f" path="res://scenes/statue.tscn" id="16_5svat"]
+[ext_resource type="PackedScene" uid="uid://dbkxis152wuwe" path="res://scenes/weak_ground.tscn" id="17_p4iqd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sic8q"]
+texture = ExtResource("12_wadvu")
+region_rect = Rect2(99.6127, 4277.77, 1101.28, 178.482)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ni8"]
+texture = ExtResource("12_wadvu")
+region_rect = Rect2(99.6127, 4003.8, 1101.28, 174.945)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_se8r6"]
+color = Color(1, 1, 1, 0.152941)
+thickness = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sa1n"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("12_wadvu")
+region_rect = Rect2(122.502, 4582.77, 1144.95, 346.474)
+
+[sub_resource type="Theme" id="Theme_lbfq3"]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("8_gh46k")
+Button/styles/disabled = ExtResource("9_odx2r")
+Button/styles/hover = ExtResource("10_8ob4u")
+Button/styles/normal = ExtResource("11_xvfr5")
+Button/styles/pressed = ExtResource("9_odx2r")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_sic8q")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_48ni8")
+HSlider/styles/slider = SubResource("StyleBoxLine_se8r6")
+Label/fonts/font = ExtResource("8_gh46k")
+Label/styles/opaque = ExtResource("13_dgu3o")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.423529, 0.14902, 0, 1)
+LineEdit/font_sizes/font_size = 22
+LineEdit/fonts/font = ExtResource("8_gh46k")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_6sa1n")
+PanelContainer/styles/panel = ExtResource("13_dgu3o")
+
+[node name="Level_example" type="Node2D"]
+script = ExtResource("1_sm0b0")
+vocabulary_name = "professions"
+
+[node name="Player" parent="." instance=ExtResource("1_cwrjd")]
+position = Vector2(164, 421)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(164, 446)
+
+[node name="Background" parent="." instance=ExtResource("2_1s861")]
+
+[node name="TileMap" parent="." instance=ExtResource("3_kfx1d")]
+layer_0/tile_data = PackedInt32Array(327675, 852015, 5, 393211, 852015, 6, 327676, 917551, 5, 393212, 917551, 6, 327677, 589871, 5, 393213, 589871, 6, 327678, 655407, 5, 393214, 655407, 6, 327679, 589871, 5, 393215, 589871, 6, 262144, 655407, 5, 327680, 655407, 6, 262145, 589871, 5, 327681, 589871, 6, 262146, 655407, 5, 327682, 655407, 6, 262147, 589871, 5, 327683, 589871, 6, 262148, 655407, 5, 327684, 655407, 6, 262149, 589871, 5, 327685, 589871, 6, 262150, 655407, 5, 327686, 655407, 6, 262151, 589871, 5, 327687, 589871, 6, 262152, 655407, 5, 327688, 655407, 6, 262153, 589871, 5, 327689, 589871, 6, 262154, 655407, 5, 327690, 655407, 6, 262155, 589871, 5, 327691, 589871, 6, 262156, 655407, 5, 327692, 655407, 6, 262157, 589871, 5, 327693, 589871, 6, 262158, 655407, 5, 327694, 655407, 6, 262159, 1376303, 5, 327695, 1376303, 6, 262160, 1441839, 5, 327696, 1441839, 6, 196628, 1703983, 5, 196629, 1769519, 5, 196630, 1835055, 5, 196631, 1769519, 5, 196632, 1835055, 5, 196633, 1769519, 5, 196634, 1835055, 5, 196635, 1769519, 5, 196636, 1835055, 5, 196637, 1769519, 5, 196638, 1835055, 5, 196639, 1769519, 5, 196640, 1835055, 5, 196641, 1769519, 5, 196642, 1835055, 5, 196643, 1900591, 5, 196644, 1966127, 5, 196627, 1638447, 5, 262163, 1638447, 6, 262164, 1703983, 6, 262165, 1769519, 6, 262166, 1835055, 6, 262167, 1769519, 6, 262168, 1835055, 6, 262169, 1769519, 6, 262170, 1835055, 6, 262171, 1769519, 6, 262172, 1835055, 6, 262173, 1769519, 6, 262174, 1835055, 6, 262175, 1769519, 6, 262176, 1835055, 6, 262177, 1769519, 6, 262178, 1835055, 6, 262179, 1900591, 6, 262180, 1966127, 6, 196647, 393263, 0, 196648, 458799, 0, 196649, 393263, 0, 196650, 458799, 0, 196651, 393263, 0, 196652, 458799, 0, 196653, 393263, 0, 196654, 458799, 0, 196655, 393263, 0, 196656, 458799, 0, 196657, 393263, 0, 196658, 458799, 0, 196659, 393263, 0, 196660, 458799, 0)
+
+[node name="CollectiblePosition" parent="." instance=ExtResource("4_kfja1")]
+position = Vector2(684, 486)
+
+[node name="CollectiblePosition2" parent="." instance=ExtResource("4_kfja1")]
+position = Vector2(1582, 434)
+
+[node name="CollectiblePosition3" parent="." instance=ExtResource("4_kfja1")]
+position = Vector2(2566, 410)
+
+[node name="CollectiblePosition4" parent="." instance=ExtResource("4_kfja1")]
+position = Vector2(2834, 430)
+
+[node name="CollectiblePosition5" parent="." instance=ExtResource("4_kfja1")]
+position = Vector2(3155, 442)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("6_bptf1")]
+
+[node name="MessagePanel" parent="CanvasLayer" instance=ExtResource("7_aoygi")]
+visible = false
+theme = SubResource("Theme_lbfq3")
+
+[node name="TranslationPuzzle" parent="CanvasLayer" instance=ExtResource("14_uev0x")]
+visible = false
+
+[node name="Deathzone" parent="." instance=ExtResource("15_l7csc")]
+position = Vector2(-131, 827)
+scale = Vector2(7.56, 1)
+
+[node name="Statue" parent="." instance=ExtResource("16_5svat")]
+position = Vector2(3542, 499)
+
+[node name="WeakGround" parent="." instance=ExtResource("17_p4iqd")]
+position = Vector2(1430, 498)
+break_time = 2
+recover_time = 3
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_enter"]
+[connection signal="body_entered" from="Statue" to="." method="_on_finish_level"]

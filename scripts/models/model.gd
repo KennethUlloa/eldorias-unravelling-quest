@@ -7,6 +7,8 @@ class Collectible:
 	var translated_name: String
 	var texture: String
 	var sound: String
+	var _audio_stream: AudioStream = null
+	var _texture: Texture2D = null
 	
 	func _init(id, _name, _translated_name, _texture, _sound = ""):
 		ID = id
@@ -16,10 +18,14 @@ class Collectible:
 		sound = _sound
 		
 	func get_texture():
-		return load(texture)
+		if _texture == null:
+			_texture = load(texture)
+		return _texture
 	
 	func get_sound():
-		return load(sound)
+		if _audio_stream == null:
+			_audio_stream = load(sound)
+		return _audio_stream
 	
 
 class Puzzle:
@@ -58,5 +64,21 @@ class Puzzle:
 					{"name": coll.name, "translate": coll.translated_name})
 		else:
 			return ""
-
+	
+	func get_collectible(id):
+		for c in options:
+			if c.ID == id:
+				return c
+		
+		return null
 			
+class Vocabulary:
+	var collectibles: Array[Collectible]
+	var theme: String
+	
+	func _init(_theme, _collectibles):
+		theme = _theme
+		collectibles = _collectibles
+	
+	
+	

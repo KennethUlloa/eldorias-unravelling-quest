@@ -10,6 +10,7 @@ var coins = 0
 @onready var hurt_sound = $HurtSound
 @onready var run_sound = $Running
 @onready var jump_sound = $Jumping
+@onready var playername = $PlayerName
 
 
 var should_move = true
@@ -20,6 +21,9 @@ var inventory = {}
 signal recolected
 signal dead
 signal took_damage
+
+func _ready():
+	playername.text = CurrentSession.player_name
 
 func _physics_process(delta):
 	if not should_move:
@@ -83,5 +87,3 @@ func recieve_damage():
 	took_damage.emit(lifes)
 	hurt_sound.play()
 
-	
-	
