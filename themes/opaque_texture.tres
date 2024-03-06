@@ -1,12 +1,15 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b70gug4noqp4w"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjjko"]
-load_path = "res://.godot/imported/Game menus-01.png-85aba52af711d84ac49dcafce349c3a7.ctex"
+[ext_resource type="Texture2D" uid="uid://uswtxs131mt8" path="res://assets/ui/ui.png" id="1_at00x"]
 
 [resource]
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = SubResource("CompressedTexture2D_fjjko")
-region_rect = Rect2(118.339, 4986.69, 1149.38, 440.51)
+texture = ExtResource("1_at00x")
+texture_margin_left = 5.0
+texture_margin_top = 4.79279
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(27, 1009, 252, 77)

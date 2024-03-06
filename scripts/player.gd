@@ -2,9 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 const SPEED = 250.0
-const JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -480.0
 
-var coins = 0
 @export var lifes = 1
 @onready var anim = $AnimatedSprite2D
 @onready var hurt_sound = $HurtSound
@@ -16,7 +15,7 @@ var coins = 0
 var should_move = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var inventory = {}
-
+var score = 0
 
 signal recolected
 signal dead
@@ -71,12 +70,9 @@ func process_animation():
 		anim.play("jump")
 
 
-func collect_item(item: String):
-	if item not in inventory:
-		inventory[item] = 1
-	else:
-		inventory[item] += 1
-	recolected.emit()
+func collect_item(points):
+	score += points
+	recolected.emit(score)
 
 	
 func recieve_damage():

@@ -1,11 +1,15 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://uranudttvgxi"]
 
-[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="1_5m7vq"]
+[ext_resource type="Texture2D" uid="uid://uswtxs131mt8" path="res://assets/ui/ui.png" id="1_0imol"]
 
 [resource]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = ExtResource("1_5m7vq")
-region_rect = Rect2(75.0029, 3973.99, 1154.44, 224.166)
+texture = ExtResource("1_0imol")
+texture_margin_left = 5.0033
+texture_margin_top = 5.26663
+texture_margin_right = 5.3089
+texture_margin_bottom = 5.0033
+region_rect = Rect2(17, 876, 253, 49)

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cyfc2kxar4er2"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cyfc2kxar4er2"]
 
 [ext_resource type="FontFile" uid="uid://doqhhnmd5e1jo" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="1_qc6wr"]
 [ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="2_wpax7"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://uranudttvgxi" path="res://themes/button_selected.tres" id="3_th6u6"]
 [ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="5_c6a0t"]
 [ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="5_k8i0t"]
+[ext_resource type="Texture2D" uid="uid://uswtxs131mt8" path="res://assets/ui/ui.png" id="8_7s4ji"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sic8q"]
 texture = ExtResource("5_k8i0t")
@@ -24,14 +25,19 @@ content_margin_left = 10.0
 content_margin_top = 5.0
 content_margin_right = 10.0
 content_margin_bottom = 5.0
-texture = ExtResource("5_k8i0t")
-region_rect = Rect2(122.502, 4582.77, 1144.95, 346.474)
+texture = ExtResource("8_7s4ji")
+texture_margin_left = 4.90693
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 4.55643
+region_rect = Rect2(27, 1009, 252, 77)
 
 [resource]
 resource_local_to_scene = true
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_qc6wr")
 Button/styles/disabled = ExtResource("2_xdqj3")
+Button/styles/focus = ExtResource("3_th6u6")
 Button/styles/hover = ExtResource("3_th6u6")
 Button/styles/normal = ExtResource("2_wpax7")
 Button/styles/pressed = ExtResource("2_xdqj3")

@@ -2,9 +2,9 @@ extends Control
 
 @export var next_scene: PackedScene
 @onready var textline = $Panel/LineEdit
-var popup_scene = load("res://scenes/popup.tscn")
+
 func _ready():
-	AudioPlayer.play_bg(AudioPlayer.MAIN_BG)
+	AudioPlayer.play_bg(AudioPlayer.Background.MAIN)
 
 
 func _on_button_pressed():

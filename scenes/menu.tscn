@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=3 uid="uid://cyaelkcq4um50"]
+
+[ext_resource type="Texture2D" uid="uid://cji37inspp2ra" path="res://assets/background/Castle_landscape.png" id="1_i8ods"]
+[ext_resource type="Script" path="res://scripts/map_menu.gd" id="2_kt6jm"]
+[ext_resource type="Texture2D" uid="uid://dqymtq7a4j1wf" path="res://assets/ui/2301.w032.n002.793A.p30.793-ai.png" id="2_uxkth"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_48git"]
+[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="3_lc57q"]
+[ext_resource type="Texture2D" uid="uid://cjsy26ggyrccr" path="res://assets/vocabulary/img/Lion.png" id="5_mh45h"]
+[ext_resource type="PackedScene" uid="uid://bjygoj3i42ef3" path="res://scenes/scene_button.tscn" id="6_psa7m"]
+[ext_resource type="Texture2D" uid="uid://deyxcbc4pc7k7" path="res://assets/vocabulary/img/Apple.png" id="7_gijw3"]
+[ext_resource type="PackedScene" uid="uid://4uk75t8i8vib" path="res://scenes/levels/level_one.tscn" id="7_k2ak2"]
+[ext_resource type="Texture2D" uid="uid://cy8i6irvtyh5l" path="res://assets/vocabulary/img/Policeman.png" id="8_s4ptf"]
+[ext_resource type="PackedScene" uid="uid://cxrh35srrxo4e" path="res://scenes/levels/Level_1.tscn" id="10_3hj7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k456y"]
+atlas = ExtResource("3_lc57q")
+region = Rect2(3349, 2336, 1540, 1706)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b7gh"]
+atlas = ExtResource("2_uxkth")
+region = Rect2(454, 15, 146, 146)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_48git")
+script = ExtResource("2_kt6jm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i8ods")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.733333)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -461.5
+offset_top = -274.0
+offset_right = 461.5
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_k456y")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -80.0
+offset_right = 400.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = SubResource("AtlasTexture_2b7gh")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -40.0
+offset_right = 45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_mh45h")
+expand_mode = 1
+
+[node name="SceneButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_psa7m")]
+layout_mode = 2
+text = "Animales"
+target_scene = ExtResource("7_k2ak2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = SubResource("AtlasTexture_2b7gh")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -40.0
+offset_right = 45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_gijw3")
+expand_mode = 1
+
+[node name="SceneButton" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("6_psa7m")]
+layout_mode = 2
+text = "Frutas"
+target_scene = ExtResource("10_3hj7s")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = SubResource("AtlasTexture_2b7gh")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer3/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -40.0
+offset_right = 45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_s4ptf")
+expand_mode = 1
+
+[node name="SceneButton" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("6_psa7m")]
+layout_mode = 2
+text = "Profesiones"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.0
+offset_top = 127.0
+offset_right = 355.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "Selecciona un reto para continuar"
+horizontal_alignment = 1

@@ -3,11 +3,11 @@
 [ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="1_ynsbl"]
 [ext_resource type="StyleBox" uid="uid://jattmvauw7ut" path="res://themes/panel_bg.tres" id="2_g1epo"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="2_ghi5g"]
-[ext_resource type="StyleBox" uid="uid://b70gug4noqp4w" path="res://themes/opaque_texture.tres" id="3_tqqvu"]
 [ext_resource type="PackedScene" uid="uid://c0e8m6dtahjyi" path="res://scenes/volume_bar.tscn" id="4_6i2rw"]
+[ext_resource type="Theme" uid="uid://cydhu20csbjob" path="res://themes/keyboard.tres" id="5_yohpk"]
 
 [node name="PauseMenu" type="CanvasLayer"]
-process_mode = 2
+process_mode = 3
 layer = 100
 script = ExtResource("2_ghi5g")
 
@@ -17,37 +17,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = -322.0
-offset_right = 233.0
-offset_bottom = 325.0
+offset_left = -455.5
+offset_top = -323.5
+offset_right = 455.5
+offset_bottom = 323.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ynsbl")
 theme_override_styles/panel = ExtResource("2_g1epo")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -173.5
-offset_top = -128.5
-offset_right = 165.5
-offset_bottom = -22.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="ContinueBtn" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Continuar"
-
-[node name="MainMenuBtn" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Regresar al menú principal"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -62,42 +39,113 @@ offset_right = 120.5
 offset_bottom = -149.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = ExtResource("3_tqqvu")
+theme_override_colors/font_color = Color(0.937255, 0.686275, 0.239216, 1)
+theme_override_colors/font_outline_color = Color(0.415686, 0.254902, 0.0235294, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
 text = "Juego en pausa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -171.5
-offset_top = -311.0
-offset_right = 171.5
-offset_bottom = -197.0
+offset_left = -286.0
+offset_top = 207.5
+offset_right = 286.0
+offset_bottom = 321.5
 grow_horizontal = 2
-grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer2"]
+[node name="ContinueBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="MainMenuBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Regresar al menú principal"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Background Volume"
 
-[node name="VolumeBarBg" parent="Panel/VBoxContainer2" instance=ExtResource("4_6i2rw")]
+[node name="VolumeBarBg" parent="Panel/HBoxContainer/VBoxContainer2" instance=ExtResource("4_6i2rw")]
 layout_mode = 2
 bus = "Background"
 
-[node name="SFX Volume" type="Label" parent="Panel/VBoxContainer2"]
+[node name="SFX Volume" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "SFX Volume"
 
-[node name="VolumeBarSFX" parent="Panel/VBoxContainer2" instance=ExtResource("4_6i2rw")]
+[node name="VolumeBarSFX" parent="Panel/HBoxContainer/VBoxContainer2" instance=ExtResource("4_6i2rw")]
 layout_mode = 2
 bus = "SFX"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 501.0
+offset_right = 423.0
+offset_bottom = 524.0
+text = "Moverse "
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 580.0
+offset_top = 501.0
+offset_right = 651.0
+offset_bottom = 524.0
+text = "Saltar"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 301.0
+offset_top = 352.0
+offset_right = 380.0
+offset_bottom = 375.0
+theme = ExtResource("1_ynsbl")
+theme_override_font_sizes/font_size = 35
+text = "Controles "
+
+[node name="Label" type="Label" parent="."]
+offset_left = 308.0
+offset_top = 417.0
+offset_right = 490.0
+offset_bottom = 591.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_yohpk")
+theme_override_constants/shadow_outline_size = 10
+text = "A"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 392.0
+offset_top = 417.0
+offset_right = 574.0
+offset_bottom = 591.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_yohpk")
+theme_override_constants/shadow_outline_size = 10
+text = "D"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 509.0
+offset_top = 417.0
+offset_right = 1049.0
+offset_bottom = 591.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("5_yohpk")
+theme_override_constants/shadow_outline_size = 10
+text = "Espacio"
+horizontal_alignment = 1

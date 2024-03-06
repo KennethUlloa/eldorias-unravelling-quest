@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0a1fll54lq4s"]
+
+[ext_resource type="StyleBox" uid="uid://jattmvauw7ut" path="res://themes/panel_bg.tres" id="1_xi4ln"]
+[ext_resource type="Script" path="res://scripts/nodes/image_choice.gd" id="2_j1adl"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_8x8y0"]
+[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="4_xa2lw"]
+[ext_resource type="Texture2D" uid="uid://dqymtq7a4j1wf" path="res://assets/ui/2301.w032.n002.793A.p30.793-ai.png" id="5_3yckg"]
+[ext_resource type="Texture2D" uid="uid://deyxcbc4pc7k7" path="res://assets/vocabulary/img/Apple.png" id="6_sq0v0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxgv8"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_5unth"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfcv6"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsxl0"]
+atlas = ExtResource("5_3yckg")
+region = Rect2(66, 158, 181, 129)
+
+[node name="ImageChoice" type="Panel"]
+offset_right = 1056.0
+offset_bottom = 523.0
+theme_override_styles/panel = ExtResource("1_xi4ln")
+script = ExtResource("2_j1adl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 72.0
+offset_right = -185.0
+offset_bottom = 112.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8x8y0")
+text = "Intentos:"
+label_settings = SubResource("LabelSettings_vxgv8")
+
+[node name="Attempts" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8x8y0")
+text = "0"
+label_settings = SubResource("LabelSettings_5unth")
+
+[node name="Instruction" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -455.0
+offset_top = 120.0
+offset_right = 28.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme = ExtResource("4_xa2lw")
+text = "Selecciona la palabra correcta que representa la imagen"
+label_settings = SubResource("LabelSettings_bfcv6")
+autowrap_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 92.0
+offset_right = 961.0
+offset_bottom = 427.0
+theme = ExtResource("3_8x8y0")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 220.0
+offset_right = 423.0
+offset_bottom = 448.0
+texture = SubResource("AtlasTexture_rsxl0")
+
+[node name="TargetImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 260.0
+offset_right = 383.0
+offset_bottom = 406.0
+texture = ExtResource("6_sq0v0")
+expand_mode = 1
+stretch_mode = 5

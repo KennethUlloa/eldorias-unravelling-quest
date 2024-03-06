@@ -2,48 +2,11 @@ extends Object
 
 class_name CollectibleRepository
 
-static var FRUITS = CollectibleModel.Vocabulary.new(
-	"fruits",
-	[
-		CollectibleModel.Collectible.new(
-			"apple",
-			"apple",
-			"manzana",
-			"res://assets/vocabulary/img/Apple.png",
-			"res://assets/vocabulary/sound/Apple.mp3"
-		),
-		CollectibleModel.Collectible.new(
-			"banana",
-			"banana",
-			"banana",
-			"res://assets/vocabulary/img/Banana.png",
-			"res://assets/vocabulary/sound/Banana.mp3"
-		),
-		CollectibleModel.Collectible.new(
-			"grapes",
-			"grapes",
-			"uvas",
-			"res://assets/vocabulary/img/Grape.png",
-			"res://assets/vocabulary/sound/Grapes.mp3"
-		),
-		CollectibleModel.Collectible.new(
-			"orange",
-			"orange",
-			"naranja",
-			"res://assets/vocabulary/img/Orange.png",
-			"res://assets/vocabulary/sound/Orange.mp3"
-		),
-		CollectibleModel.Collectible.new(
-			"strawberry",
-			"strawberry",
-			"fresa",
-			"res://assets/vocabulary/img/strawberry.png",
-			"res://assets/vocabulary/sound/Strawberry.mp3"
-		)
-	] as Array[CollectibleModel.Collectible]
-)
+enum Vocabulary {ANIMALS = 0, FRUITS = 1, PROFESSIONS = 2}
 
-static var ANIMALS = CollectibleModel.Vocabulary.new(
+static var vocabulary_items = {
+	Vocabulary.ANIMALS: 
+	CollectibleModel.Vocabulary.new(
 	"animals",
 	[
 		CollectibleModel.Collectible.new(
@@ -82,9 +45,49 @@ static var ANIMALS = CollectibleModel.Vocabulary.new(
 			"res://assets/vocabulary/sound/Wolf.mp3"
 		)
 	] as Array[CollectibleModel.Collectible]
-)
-
-static var PROFESSIONS = CollectibleModel.Vocabulary.new(
+),
+	Vocabulary.FRUITS: CollectibleModel.Vocabulary.new(
+	"fruits",
+	[
+		CollectibleModel.Collectible.new(
+			"apple",
+			"apple",
+			"manzana",
+			"res://assets/vocabulary/img/Apple.png",
+			"res://assets/vocabulary/sound/Apple.mp3"
+		),
+		CollectibleModel.Collectible.new(
+			"banana",
+			"banana",
+			"banana",
+			"res://assets/vocabulary/img/Banana.png",
+			"res://assets/vocabulary/sound/Banana.mp3"
+		),
+		CollectibleModel.Collectible.new(
+			"grapes",
+			"grapes",
+			"uvas",
+			"res://assets/vocabulary/img/Grape.png",
+			"res://assets/vocabulary/sound/Grapes.mp3"
+		),
+		CollectibleModel.Collectible.new(
+			"orange",
+			"orange",
+			"naranja",
+			"res://assets/vocabulary/img/Orange.png",
+			"res://assets/vocabulary/sound/Orange.mp3"
+		),
+		CollectibleModel.Collectible.new(
+			"strawberry",
+			"strawberry",
+			"fresa",
+			"res://assets/vocabulary/img/strawberry.png",
+			"res://assets/vocabulary/sound/Strawberry.mp3"
+		)
+	] as Array[CollectibleModel.Collectible]
+),
+	
+	Vocabulary.PROFESSIONS: CollectibleModel.Vocabulary.new(
 	"professions",
 	[
 		CollectibleModel.Collectible.new(
@@ -124,11 +127,6 @@ static var PROFESSIONS = CollectibleModel.Vocabulary.new(
 		)
 	] as Array[CollectibleModel.Collectible]
 )
-
-static var vocabulary_items = {
-	"animals": ANIMALS,
-	"fruits": FRUITS,
-	"professions": PROFESSIONS
 }
 
 

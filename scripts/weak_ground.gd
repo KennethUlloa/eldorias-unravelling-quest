@@ -11,7 +11,7 @@ func _ready():
 	destroy_timer.wait_time = break_time
 	reload_timer.wait_time = recover_time
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	destroy_sound.play()
 	destroy_timer.start()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://beunawbcgbkmw"]
+[gd_scene load_steps=24 format=3 uid="uid://beunawbcgbkmw"]
 
 [ext_resource type="PackedScene" uid="uid://c5ne5rqn3tnus" path="res://scenes/player.tscn" id="1_cwrjd"]
 [ext_resource type="Script" path="res://scripts/GenericLevel.gd" id="1_sm0b0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cnoduc7ugee1a" path="res://scenes/deathzone.tscn" id="15_l7csc"]
 [ext_resource type="PackedScene" uid="uid://dmxps2gmtbl4f" path="res://scenes/statue.tscn" id="16_5svat"]
 [ext_resource type="PackedScene" uid="uid://dbkxis152wuwe" path="res://scenes/weak_ground.tscn" id="17_p4iqd"]
+[ext_resource type="PackedScene" uid="uid://d3kyjdaslt25p" path="res://scenes/backgroun_jungle.tscn" id="18_ava41"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sic8q"]
 texture = ExtResource("12_wadvu")
@@ -38,7 +39,7 @@ content_margin_bottom = 5.0
 texture = ExtResource("12_wadvu")
 region_rect = Rect2(122.502, 4582.77, 1144.95, 346.474)
 
-[sub_resource type="Theme" id="Theme_lbfq3"]
+[sub_resource type="Theme" id="Theme_adnet"]
 resource_local_to_scene = true
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("8_gh46k")
@@ -60,33 +61,31 @@ PanelContainer/styles/panel = ExtResource("13_dgu3o")
 
 [node name="Level_example" type="Node2D"]
 script = ExtResource("1_sm0b0")
-vocabulary_name = "professions"
+vocabulary_name = 2
 
 [node name="Player" parent="." instance=ExtResource("1_cwrjd")]
-position = Vector2(164, 421)
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(164, 446)
+position = Vector2(314, 404)
 
 [node name="Background" parent="." instance=ExtResource("2_1s861")]
+visible = false
 
 [node name="TileMap" parent="." instance=ExtResource("3_kfx1d")]
-layer_0/tile_data = PackedInt32Array(327675, 852015, 5, 393211, 852015, 6, 327676, 917551, 5, 393212, 917551, 6, 327677, 589871, 5, 393213, 589871, 6, 327678, 655407, 5, 393214, 655407, 6, 327679, 589871, 5, 393215, 589871, 6, 262144, 655407, 5, 327680, 655407, 6, 262145, 589871, 5, 327681, 589871, 6, 262146, 655407, 5, 327682, 655407, 6, 262147, 589871, 5, 327683, 589871, 6, 262148, 655407, 5, 327684, 655407, 6, 262149, 589871, 5, 327685, 589871, 6, 262150, 655407, 5, 327686, 655407, 6, 262151, 589871, 5, 327687, 589871, 6, 262152, 655407, 5, 327688, 655407, 6, 262153, 589871, 5, 327689, 589871, 6, 262154, 655407, 5, 327690, 655407, 6, 262155, 589871, 5, 327691, 589871, 6, 262156, 655407, 5, 327692, 655407, 6, 262157, 589871, 5, 327693, 589871, 6, 262158, 655407, 5, 327694, 655407, 6, 262159, 1376303, 5, 327695, 1376303, 6, 262160, 1441839, 5, 327696, 1441839, 6, 196628, 1703983, 5, 196629, 1769519, 5, 196630, 1835055, 5, 196631, 1769519, 5, 196632, 1835055, 5, 196633, 1769519, 5, 196634, 1835055, 5, 196635, 1769519, 5, 196636, 1835055, 5, 196637, 1769519, 5, 196638, 1835055, 5, 196639, 1769519, 5, 196640, 1835055, 5, 196641, 1769519, 5, 196642, 1835055, 5, 196643, 1900591, 5, 196644, 1966127, 5, 196627, 1638447, 5, 262163, 1638447, 6, 262164, 1703983, 6, 262165, 1769519, 6, 262166, 1835055, 6, 262167, 1769519, 6, 262168, 1835055, 6, 262169, 1769519, 6, 262170, 1835055, 6, 262171, 1769519, 6, 262172, 1835055, 6, 262173, 1769519, 6, 262174, 1835055, 6, 262175, 1769519, 6, 262176, 1835055, 6, 262177, 1769519, 6, 262178, 1835055, 6, 262179, 1900591, 6, 262180, 1966127, 6, 196647, 393263, 0, 196648, 458799, 0, 196649, 393263, 0, 196650, 458799, 0, 196651, 393263, 0, 196652, 458799, 0, 196653, 393263, 0, 196654, 458799, 0, 196655, 393263, 0, 196656, 458799, 0, 196657, 393263, 0, 196658, 458799, 0, 196659, 393263, 0, 196660, 458799, 0)
+layer_0/tile_data = PackedInt32Array(262141, 1638447, 5, 327677, 1638447, 6, 262142, 1703983, 5, 327678, 1703983, 6, 196618, 1835055, 5, 262154, 1835055, 6, 196619, 1966127, 5, 262155, 1966127, 6, 262143, 1769519, 5, 327679, 1769519, 6, 196608, 1835055, 5, 262144, 1835055, 6, 196609, 1769519, 5, 262145, 1769519, 6, 196610, 1835055, 5, 262146, 1835055, 6, 196611, 1769519, 5, 262147, 1769519, 6, 196612, 1835055, 5, 262148, 1835055, 6, 196613, 1769519, 5, 262149, 1769519, 6, 196614, 1835055, 5, 262150, 1835055, 6, 196615, 1769519, 5, 262151, 1769519, 6, 196616, 1835055, 5, 262152, 1835055, 6, 196617, 1769519, 5, 262153, 1769519, 6, 131086, 1638447, 5, 196622, 1638447, 6, 131087, 1703983, 5, 196623, 1703983, 6, 131088, 1769519, 5, 196624, 1769519, 6, 131089, 1835055, 5, 196625, 1835055, 6, 131090, 1769519, 5, 196626, 1769519, 6, 131091, 1835055, 5, 196627, 1835055, 6, 131092, 1769519, 5, 196628, 1769519, 6, 131093, 1835055, 5, 196629, 1835055, 6, 131094, 1769519, 5, 196630, 1769519, 6, 131095, 1835055, 5, 196631, 1835055, 6, 131096, 1769519, 5, 196632, 1769519, 6, 131097, 1835055, 5, 196633, 1835055, 6, 131098, 1900591, 5, 196634, 1900591, 6, 131099, 1966127, 5, 196635, 1966127, 6, 65566, 1638447, 5, 131102, 1638447, 6, 65567, 1703983, 5, 131103, 1703983, 6, 65568, 1769519, 5, 131104, 1769519, 6, 65569, 1835055, 5, 131105, 1835055, 6, 65570, 1769519, 5, 131106, 1769519, 6, 65571, 1835055, 5, 131107, 1835055, 6, 65572, 1769519, 5, 131108, 1769519, 6, 65573, 1835055, 5, 131109, 1835055, 6, 65574, 1900591, 5, 131110, 1900591, 6, 65575, 1966127, 5, 131111, 1966127, 6)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(243, 410)
 
 [node name="CollectiblePosition" parent="." instance=ExtResource("4_kfja1")]
-position = Vector2(684, 486)
+position = Vector2(538, 415)
 
 [node name="CollectiblePosition2" parent="." instance=ExtResource("4_kfja1")]
-position = Vector2(1582, 434)
+position = Vector2(967, 420)
 
 [node name="CollectiblePosition3" parent="." instance=ExtResource("4_kfja1")]
-position = Vector2(2566, 410)
+position = Vector2(1223, 368)
 
 [node name="CollectiblePosition4" parent="." instance=ExtResource("4_kfja1")]
-position = Vector2(2834, 430)
-
-[node name="CollectiblePosition5" parent="." instance=ExtResource("4_kfja1")]
-position = Vector2(3155, 442)
+position = Vector2(1617, 362)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -94,22 +93,24 @@ position = Vector2(3155, 442)
 
 [node name="MessagePanel" parent="CanvasLayer" instance=ExtResource("7_aoygi")]
 visible = false
-theme = SubResource("Theme_lbfq3")
+theme = SubResource("Theme_adnet")
 
 [node name="TranslationPuzzle" parent="CanvasLayer" instance=ExtResource("14_uev0x")]
 visible = false
-
-[node name="Deathzone" parent="." instance=ExtResource("15_l7csc")]
-position = Vector2(-131, 827)
-scale = Vector2(7.56, 1)
+puzzle_type = 2
 
 [node name="Statue" parent="." instance=ExtResource("16_5svat")]
-position = Vector2(3542, 499)
+position = Vector2(2691, 353)
+
+[node name="Deathzone" parent="." instance=ExtResource("15_l7csc")]
+position = Vector2(-99, 757)
+scale = Vector2(2.8, 1)
 
 [node name="WeakGround" parent="." instance=ExtResource("17_p4iqd")]
-position = Vector2(1430, 498)
-break_time = 2
-recover_time = 3
+position = Vector2(2119, 355)
+break_time = 1
 
-[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_enter"]
+[node name="BackgrounJungle" parent="." instance=ExtResource("18_ava41")]
+
 [connection signal="body_entered" from="Statue" to="." method="_on_finish_level"]
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_enter"]

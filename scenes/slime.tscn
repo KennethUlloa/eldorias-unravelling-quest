@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwxwcexukhf4t"]
+
+[ext_resource type="Texture2D" uid="uid://ds3j0oyjr3p46" path="res://assets/background/decor/35779758_2211.w032.n002.661B.p15.661-ai.png" id="1_fmgiq"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_lw1ke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0yoq"]
+atlas = ExtResource("1_fmgiq")
+region = Rect2(35, 36, 190, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j27n"]
+size = Vector2(20, 12)
+
+[node name="Slime" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lw1ke")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.764706)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -20.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_s0yoq")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_5j27n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

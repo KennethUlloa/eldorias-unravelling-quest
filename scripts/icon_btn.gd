@@ -2,10 +2,15 @@ extends PanelContainer
 
 
 @onready var texture_rect = $TextureRect
-var hover_theme = preload("res://scenes/icon_btn_hover.tres")
-var normal_theme = preload("res://scenes/icon_btn.tres")
+@export var texture: Texture2D = null
+var hover_theme = preload("res://themes/button_selected.tres")
+var normal_theme = preload("res://themes/button_texture.tres")
 
 signal pressed
+
+func _ready():
+	if texture != null:
+		texture_rect.texture = texture
 
 func _on_mouse_entered():
 	add_theme_stylebox_override("panel", hover_theme)

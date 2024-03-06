@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjs37pvugditn"]
+
+[ext_resource type="StyleBox" uid="uid://jattmvauw7ut" path="res://themes/panel_bg.tres" id="1_t0bf0"]
+[ext_resource type="Script" path="res://scripts/nodes/sound_choice.gd" id="2_po0p0"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="3_1w02r"]
+[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="4_jmdm2"]
+[ext_resource type="Texture2D" uid="uid://d4ftwraa6015o" path="res://assets/ui/Gold icons set 1-01-01.png" id="6_kjt1j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxgv8"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_5unth"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfcv6"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldwme"]
+atlas = ExtResource("6_kjt1j")
+region = Rect2(984, 3496, 232, 184)
+
+[node name="SoundChoice" type="Panel"]
+offset_right = 1056.0
+offset_bottom = 523.0
+theme_override_styles/panel = ExtResource("1_t0bf0")
+script = ExtResource("2_po0p0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 72.0
+offset_right = -185.0
+offset_bottom = 112.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_1w02r")
+text = "Intentos:"
+label_settings = SubResource("LabelSettings_vxgv8")
+
+[node name="Attempts" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_1w02r")
+text = "0"
+label_settings = SubResource("LabelSettings_5unth")
+
+[node name="Instruction" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -455.0
+offset_top = 120.0
+offset_right = 28.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme = ExtResource("4_jmdm2")
+text = "Selecciona la traducción de la palabra que se escucha a continuación:"
+label_settings = SubResource("LabelSettings_bfcv6")
+autowrap_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 92.0
+offset_right = 961.0
+offset_bottom = 427.0
+theme = ExtResource("3_1w02r")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 307.0
+offset_right = 424.0
+offset_bottom = 355.0
+theme = ExtResource("3_1w02r")
+text = "Reproducir sonido"
+icon = SubResource("AtlasTexture_ldwme")
+expand_icon = true

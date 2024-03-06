@@ -1,32 +1,24 @@
 extends Area2D
 
-var area = 86 * 86
-var type: String
 @onready var collision = $CollisionShape2D
 var audio_stream: AudioStream
-
-func _ready():
-	pass # Replace with function body.
+@export var points = 0
 	
-func load_values(texture: Texture2D, _a_stream: AudioStream, _type: String):
-	type = _type
-	$TextureRect.texture = texture
-	audio_stream = _a_stream
+func load_values(collectible: CollectibleModel.Collectible):
+	$TextureRect.texture = collectible.get_texture()
+	audio_stream = collectible.get_sound()
 	
-
 func _on_body_entered(body):
 	if body is Player:
+		#Disables the collision when the collision finish the current process
 		collision.set_deferred("disable", true)
 		visible = false
-		body.collect_item(type)
+		body.collect_item(points)
+		
 		if audio_stream == null:
-			AudioPlayer.play_sfx(AudioPlayer.PICK_SFX)
+			AudioPlayer.play_sfx(AudioPlayer.SFX.PICK)
 		else:
 			AudioPlayer.play_stream(audio_stream)
 			
 		queue_free()
-		#audio.play()
 
-
-func _on_audio_stream_player_2d_finished():
-	queue_free()

@@ -1,40 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://dra6t7c2qguns"]
+[gd_scene load_steps=4 format=3 uid="uid://dra6t7c2qguns"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_56l3q"]
-[ext_resource type="Texture2D" uid="uid://cofu668pq2wny" path="res://assets/ui/Game menus-01.png" id="2_fvu1v"]
+[ext_resource type="Texture2D" uid="uid://bhdlqj3obarof" path="res://assets/background/decor/Bubble.png" id="2_sjk11"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6ck5"]
-atlas = ExtResource("2_fvu1v")
-region = Rect2(100.786, 4281.05, 1104.4, 173.8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhguy"]
-size = Vector2(56.6786, 50)
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3mhx"]
+radius = 35.6446
 
 [node name="Collectible" type="Area2D"]
 scale = Vector2(1.4, 1.4)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_56l3q")
+points = 10
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = -31.4286
-offset_top = -31.4286
-offset_right = 32.5714
-offset_bottom = 32.5714
-texture = SubResource("AtlasTexture_l6ck5")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_sjk11")
 expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.232134, -9.53674e-06)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_vhguy")
+shape = SubResource("CircleShape2D_e3mhx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -31.0
-offset_top = -31.0
-offset_right = 33.0
-offset_bottom = 33.0
-size_flags_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -26.5
+offset_right = 26.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 1
 stretch_mode = 4
 

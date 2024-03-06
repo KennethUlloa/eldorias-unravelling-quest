@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://c11wo4k65r6hl"]
+
+[ext_resource type="StyleBox" uid="uid://jattmvauw7ut" path="res://themes/panel_bg.tres" id="1_xm6c3"]
+[ext_resource type="Script" path="res://scripts/nodes/translation.gd" id="2_1m5gt"]
+[ext_resource type="Theme" uid="uid://cyfc2kxar4er2" path="res://themes/Medieval.tres" id="2_b8tgo"]
+[ext_resource type="Theme" uid="uid://c44262616t3im" path="res://themes/riddle.tres" id="3_ifmc3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxgv8"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_5unth"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfcv6"]
+font_size = 32
+
+[node name="Translation" type="Panel"]
+offset_right = 1056.0
+offset_bottom = 523.0
+theme_override_styles/panel = ExtResource("1_xm6c3")
+script = ExtResource("2_1m5gt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 73.5
+offset_right = 65.0
+offset_bottom = 113.5
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_b8tgo")
+text = "Intentos:"
+label_settings = SubResource("LabelSettings_vxgv8")
+
+[node name="Attempts" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_b8tgo")
+text = "0"
+label_settings = SubResource("LabelSettings_5unth")
+
+[node name="Instruction" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.0
+offset_top = 123.0
+offset_right = 413.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme = ExtResource("3_ifmc3")
+text = "Selecciona la traducción correcta de la siguiente palabra o frase:"
+label_settings = SubResource("LabelSettings_bfcv6")
+
+[node name="TargetWord" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -73.5
+offset_right = 468.0
+offset_bottom = -18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ifmc3")
+theme_override_font_sizes/font_size = 48
+text = "Frase/Palabra
+"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 275.0
+offset_right = 1018.0
+offset_bottom = 446.0
+theme = ExtResource("2_b8tgo")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4

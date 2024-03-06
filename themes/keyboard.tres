@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cydhu20csbjob"]
+
+[ext_resource type="Texture2D" uid="uid://cd0tgvhnx0qmw" path="res://assets/ui/key.png" id="1_vgpn2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hlul"]
+texture = ExtResource("1_vgpn2")
+texture_margin_left = 55.8831
+texture_margin_top = 34.7717
+texture_margin_right = 55.8831
+texture_margin_bottom = 72.0271
+region_rect = Rect2(13, 9, 213, 200)
+modulate_color = Color(0, 0.713726, 0.811765, 1)
+
+[resource]
+Label/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+Label/constants/shadow_offset_y = 1
+Label/font_sizes/font_size = 48
+Label/styles/normal = SubResource("StyleBoxTexture_5hlul")

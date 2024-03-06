@@ -71,6 +71,24 @@ class Puzzle:
 				return c
 		
 		return null
+	
+	func reduced_options(count):
+		if count >= options.size():
+			return options
+			
+		var _answer = null
+		var reduced = []
+		
+		for col in options:
+			if col.ID == answer:
+				_answer = col
+			elif reduced.size() < (count - 1):
+				reduced.append(col)
+			
+		
+		reduced.append(_answer)
+		reduced.shuffle()
+		return reduced
 			
 class Vocabulary:
 	var collectibles: Array[Collectible]

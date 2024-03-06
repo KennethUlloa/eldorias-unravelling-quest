@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqr75trwel3e6"]
 
-[ext_resource type="StyleBox" uid="uid://claggbq7fjqni" path="res://scenes/icon_btn.tres" id="1_g651t"]
+[ext_resource type="StyleBox" uid="uid://b5m0cceaphqwm" path="res://themes/button_texture.tres" id="1_1schj"]
 [ext_resource type="Texture2D" uid="uid://deyxcbc4pc7k7" path="res://assets/vocabulary/img/Apple.png" id="2_2h20x"]
 [ext_resource type="Script" path="res://scripts/icon_btn.gd" id="2_dmy8i"]
 
 [sub_resource type="Theme" id="Theme_dyca8"]
-PanelContainer/styles/panel = ExtResource("1_g651t")
+PanelContainer/styles/panel = ExtResource("1_1schj")
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="IconBtn" type="PanelContainer"]
 custom_minimum_size = Vector2(32, 32)
 anchors_preset = 15
 anchor_right = 1.0
