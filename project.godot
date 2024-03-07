@@ -15,7 +15,7 @@ run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/image="res://Eldorias.png"
-config/icon="res://Eldorias.svg"
+config/icon="res://Eldorias_bg.svg"
 config/image=""
 
 [autoload]
