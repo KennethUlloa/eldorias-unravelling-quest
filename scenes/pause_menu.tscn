@@ -149,3 +149,5 @@ theme = ExtResource("5_yohpk")
 theme_override_constants/shadow_outline_size = 10
 text = "Espacio"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

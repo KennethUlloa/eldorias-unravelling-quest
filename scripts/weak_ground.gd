@@ -3,8 +3,8 @@ extends StaticBody2D
 @onready var destroy_timer = $DestroyTimer
 @onready var reload_timer = $ReloadTimer
 @onready var destroy_sound = $DestroySound
-@export var break_time = 5
-@export var recover_time = 5
+@export var break_time: float = 5.0
+@export var recover_time: float = 5.0
 var should_break = true
 
 func _ready():

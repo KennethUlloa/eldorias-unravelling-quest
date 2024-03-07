@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyaelkcq4um50"]
+[gd_scene load_steps=15 format=3 uid="uid://cyaelkcq4um50"]
 
 [ext_resource type="Texture2D" uid="uid://cji37inspp2ra" path="res://assets/background/Castle_landscape.png" id="1_i8ods"]
 [ext_resource type="Script" path="res://scripts/map_menu.gd" id="2_kt6jm"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cjsy26ggyrccr" path="res://assets/vocabulary/img/Lion.png" id="5_mh45h"]
 [ext_resource type="PackedScene" uid="uid://bjygoj3i42ef3" path="res://scenes/scene_button.tscn" id="6_psa7m"]
 [ext_resource type="Texture2D" uid="uid://deyxcbc4pc7k7" path="res://assets/vocabulary/img/Apple.png" id="7_gijw3"]
-[ext_resource type="PackedScene" uid="uid://4uk75t8i8vib" path="res://scenes/levels/level_one.tscn" id="7_k2ak2"]
+[ext_resource type="PackedScene" uid="uid://4uk75t8i8vib" path="res://scenes/levels/Level1.tscn" id="8_py338"]
 [ext_resource type="Texture2D" uid="uid://cy8i6irvtyh5l" path="res://assets/vocabulary/img/Policeman.png" id="8_s4ptf"]
-[ext_resource type="PackedScene" uid="uid://cxrh35srrxo4e" path="res://scenes/levels/Level_1.tscn" id="10_3hj7s"]
+[ext_resource type="PackedScene" uid="uid://cxrh35srrxo4e" path="res://scenes/levels/Level2.tscn" id="10_q5jm3"]
+[ext_resource type="PackedScene" uid="uid://driuumh5p627i" path="res://scenes/levels/Level3.tscn" id="12_hy2v1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k456y"]
 atlas = ExtResource("3_lc57q")
@@ -101,7 +102,7 @@ expand_mode = 1
 [node name="SceneButton" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_psa7m")]
 layout_mode = 2
 text = "Animales"
-target_scene = ExtResource("7_k2ak2")
+target_scene = ExtResource("8_py338")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -131,7 +132,7 @@ expand_mode = 1
 [node name="SceneButton" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("6_psa7m")]
 layout_mode = 2
 text = "Frutas"
-target_scene = ExtResource("10_3hj7s")
+target_scene = ExtResource("10_q5jm3")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -161,6 +162,7 @@ expand_mode = 1
 [node name="SceneButton" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("6_psa7m")]
 layout_mode = 2
 text = "Profesiones"
+target_scene = ExtResource("12_hy2v1")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
